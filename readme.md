@@ -78,12 +78,14 @@ First, you must create a test MySQL database in which to run the tests, with the
 ```
 *These database credentials are located at `test/config/database.js`*
 
+Run `npm install`
+
+If you haven't already, `npm install mocha -g` to make `mocha` usable on the command line.
+
 From your project's base directory, to run all the tests:
 ```
 mocha
 ```
-*You may need to run `npm install && npm install -g mocha` locally to get the dev dependencies and to optionally install mocha globally if you don't already have it installed.*
-
 To run only the unit tests:
 ```
 mocha test/unit
@@ -94,4 +96,5 @@ mocha test/integration
 ```
 ## Release History
  * 2014-03-21 `0.0.9` removed dependencies on underscore and async, linted tests.
- * 2014-03-20 `0.0.8` Forked repo, added code to deal with DB disconnects.
+ * 2014-03-21 `0.0.8` refactored.
+ * 2014-03-20 `0.0.7` Forked repo, added code to deal with DB disconnects.
