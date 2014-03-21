@@ -7,7 +7,7 @@ A MySQL session store for express.js
 
 The quick way:
 ```
-npm install express-mysql-session
+npm install express-mysql-session --save
 ```
 
 The other, slower way is to add `express-mysql-session` to your project's `package.json` file:
@@ -32,10 +32,10 @@ npm install
 ## Usage
 
 ```js
-var express = require('express')
-var app = module.exports = express()
+var express = require('express');
+var app = module.exports = express();
 
-var SessionStore = require('express-mysql-session')
+var SessionStore = require('express-mysql-session');
 
 app.configure(function() {
 
@@ -46,11 +46,11 @@ app.configure(function() {
 		password: 'password',
 		database: 'session_test',
 		reconnectDelay: 1000
-	}
+	};
 
-	app.use(express.logger())
-	app.use(express.cookieParser())
-	app.use(express.bodyParser())
+	app.use(express.logger());
+	app.use(express.cookieParser());
+	app.use(express.bodyParser());
 
 	app.use(express.session({
 
@@ -58,9 +58,9 @@ app.configure(function() {
 		secret: 'session_cookie_secret',
 		store: new SessionStore(options)
 
-	}))
+	}));
 
-})
+});
 ```
 
 
@@ -92,3 +92,6 @@ To run only the integration tests:
 ```
 mocha test/integration
 ```
+## Release History
+ * 2014-03-21 `0.0.9` removed dependencies on underscore and async, linted tests.
+ * 2014-03-20 `0.0.8` Forked repo, added code to deal with DB disconnects.
