@@ -95,6 +95,7 @@ To run only the integration tests:
 mocha test/integration
 ```
 ## Release History
+ * 2014-04-05 `0.0.11` added in ping to prevent disconnects.
  * 2014-04-05 `0.0.10` added in disconnection test, added in more options, kept compatibility with upstream.
  * 2014-03-21 `0.0.9` removed dependencies on underscore and async, linted tests.
  * 2014-03-21 `0.0.8` refactored.
