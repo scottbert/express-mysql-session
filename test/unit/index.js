@@ -6,3 +6,4 @@ require('./expiration');
 require('./get');
 require('./length');
 require('./set');
+require('./disconnect');

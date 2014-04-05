@@ -84,7 +84,7 @@ If you haven't already, `npm install mocha -g` to make `mocha` usable on the com
 
 From your project's base directory, to run all the tests:
 ```
-mocha
+npm test
 ```
 To run only the unit tests:
 ```
@@ -95,6 +95,7 @@ To run only the integration tests:
 mocha test/integration
 ```
 ## Release History
+ * 2014-04-05 `0.0.10` added in disconnection test, added in more options, kept compatibility with upstream.
  * 2014-03-21 `0.0.9` removed dependencies on underscore and async, linted tests.
  * 2014-03-21 `0.0.8` refactored.
  * 2014-03-20 `0.0.7` Forked repo, added code to deal with DB disconnects.

@@ -1,8 +1,9 @@
 /*jshint forin:true, noarg:true, noempty:true, bitwise:true, eqeqeq:true, bitwise:false, strict:true, undef:true, node:true, unused:true, curly:true, white:true, indent:4, maxerr:50 */
-var async = require('async');
-var fs = require('fs');
-
-var SessionStore = require('./session-store');
+var async = require('async'),
+	fs = require('fs'),
+	SessionStore = require('./session-store'),
+	mysql = require('mysql'),
+	connection = mysql.createConnection(require('./config/database.js'));
 (function () {
 	"use strict";
 	module.exports = {
@@ -19,7 +20,7 @@ var SessionStore = require('./session-store');
 		},
 		tearDown: function (done) {
 			var sql = fs.readFileSync(__dirname + '/tear-down.sql', 'utf-8');
-			SessionStore.connection.query(sql, function (error) {
+			connection.query(sql, function (error) {
 				if (error) {
 					return done(new Error(error));
 				}

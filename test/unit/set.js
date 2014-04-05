@@ -1,6 +1,5 @@
 /*jshint forin:true, noarg:true, noempty:true, bitwise:true, eqeqeq:true, bitwise:false, strict:true, undef:true, node:true, unused:true, curly:true, white:true, indent:4, maxerr:50 */
 /* global before:false, after:false, describe:false, it:false */
-var _ = require('underscore');
 var async = require('async');
 var chai = require('chai');
 var expect = chai.expect;
@@ -61,7 +60,7 @@ describe('SessionStore#set(session_id, data, cb)', function () {
 			async.each(fixtures, function (fixture, nextFixture) {
 
 				var session_id = fixture.session_id;
-				var data = _.clone(fixture.data);
+				var data = fixture.data;
 
 				data.new_attr = 'A new attribute!';
 				data.and_another = 'And another attribute..';

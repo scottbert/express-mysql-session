@@ -1,14 +1,12 @@
 /*jshint forin:true, noarg:true, noempty:true, bitwise:true, eqeqeq:true, bitwise:false, strict:true, undef:true, node:true, unused:true, curly:true, white:true, indent:4, maxerr:50 */
 /* global before:false, after:false, describe:false, it:false */
-var _ = require('underscore');
-var async = require('async');
-var chai = require('chai');
-var expect = chai.expect;
-
-var SessionStore = require('../session-store.js');
-var TestManager = require('../test-manager.js');
-
-var connection = SessionStore.connection;
+var async = require('async'),
+	chai = require('chai'),
+	expect = chai.expect,
+	mysql = require('mysql'),
+	SessionStore = require('../session-store.js'),
+	TestManager = require('../test-manager.js'),
+	connection = mysql.createConnection(require('../config/database.js'));
 
 describe('SessionStore#clearExpiredSessions(cb)', function () {
 	"use strict";
@@ -23,7 +21,7 @@ describe('SessionStore#clearExpiredSessions(cb)', function () {
 		var num_expired = (fixtures.length - 2);
 
 		before(TestManager.populateSessions);
-		before(_.bind(setSomeSessionsAsExpired, undefined, num_expired));
+		before(function(done) { setSomeSessionsAsExpired(num_expired, done); });
 		after(TestManager.clearSessions);
 
 		it('should clear only the expired sessions', function (done) {
